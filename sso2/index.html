@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link href="http://cdn.quilt.janrain.com/2.2.4/quilt.css" media="all" rel="stylesheet" type="text/css" />
+<link href="top.css" media="all" rel="stylesheet" type="text/css" />
+<style>
+span[class^="janrain-provider-icon-"]{-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-repeat:no-repeat;background-position:center center}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://sso1.janrain.com/js/cookie.js"></script>
+<script type="text/javascript" src="http://sso1.janrain.com/js/prettyprint.js"></script>
+<script type="text/javascript" src="http://sso1.janrain.com/js/engage-settings.js"></script>
+<script type="text/javascript" src="https://d1v9u0bgi1uimx.cloudfront.net/sso.js"></script>
+<script type="text/javascript">
+ janrain.settings.segment = 'janrainDemoOne';
+ JANRAIN.SSO.ENGAGE.check_login ({
+  sso_server: janrain.settings.ssoServer,
+  token_uri: '/cgi-bin/token',
+  xd_receiver: 'http://sso2.janrain.com/rpx_xdcomm.html',
+  logout_uri: 'http://sso2.janrain.com/cgi-bin/logout',
+  segment: janrain.settings.segment
+ });
+</script>
+<title>Janrain Multi-Segment Demo Site 2</title>
+</head>
+<body class="quilt janrain-font" onload="showProfile()">
+<div class="global_nav">
+  <div class="wrapper">
+  <ul>
+    <li><a href="http://sso1.janrain.com">Demo Site 1</a></li>
+    <li class="selected"><a href="http://sso2.janrain.com">Demo Site 2</a></li>
+    <li><a href="http://sso3.janrain.com">Demo Site 3</a></li>
+    <li><a href="http://sso4.janrain.com">Demo Site 4</a></li>
+  </ul>
+  </div>
+</div>
+<div class="grid-block"> <div class="col3 center_col">
+<h1>Janrain Multi-Segment Demo Site 2</h1>
+<h3><a class="janrainEngage" href="#">Sign In on segment <script>document.write(janrain.settings.segment);</script></a></h3>
+<br/>
+<a id="sign-out" onClick="my_logout()" href=""></a>
+<p>Profile from Engage: <div id="cmProfile"></div></p>
+<img src="http://sso1.janrain.com/sso.svg"/>
+</div>
+<p>
+"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.
+</p>
+<p>
+To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?"
+</p>
+</div>
+</body>
+</html>

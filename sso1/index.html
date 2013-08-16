@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link href="http://cdn.quilt.janrain.com/2.2.4/quilt.css" media="all" rel="stylesheet" type="text/css" />
+<link href="top.css" media="all" rel="stylesheet" type="text/css" />
+<style>
+span[class^="janrain-provider-icon-"]{-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-repeat:no-repeat;background-position:center center}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="/js/cookie.js"></script>
+<script type="text/javascript" src="/js/prettyprint.js"></script>
+<script type="text/javascript" src="http://sso1.janrain.com/js/engage-settings.js"></script>
+<script type="text/javascript" src="https://d1v9u0bgi1uimx.cloudfront.net/sso.js"></script>
+<script type="text/javascript">
+ janrain.settings.segment = 'janrainDemoOne';
+
+ JANRAIN.SSO.ENGAGE.check_login ({
+  sso_server: janrain.settings.ssoServer,
+  xd_receiver: 'http://sso1.janrain.com/rpx_xdcomm.html',
+  token_uri: '/cgi-bin/token',
+  logout_uri: 'http://sso1.janrain.com/cgi-bin/logout',
+  segment: janrain.settings.segment
+ });
+</script>
+<title>Janrain Multi-Segment Demo Site 1</title>
+</head>
+<body class="quilt janrain-font" onload="showProfile()">
+<div class="global_nav">
+  <div class="wrapper">
+    <ul>
+    <li class="selected"><a href="http://sso1.janrain.com">Demo Site 1</a></li>
+    <li><a href="http://sso2.janrain.com">Demo Site 2</a></li>
+    <li><a href="http://sso3.janrain.com">Demo Site 3</a></li>
+    <li><a href="http://sso4.janrain.com">Demo Site 4</a></li>
+    </ul>
+  </div>
+</div>
+<div class="grid-block">
+<div class="col3 center_col">
+<h1>Janrain Multi-Segment Demo Site 1</h1>
+<h3><a class="janrainEngage" href="#">Sign In on segment <script>document.write(janrain.settings.segment);</script></a></h3>
+<br/>
+<a id="sign-out" onClick="my_logout()" href=""></a>
+<p>Profile from Engage: <div id="cmProfile"></div></p>
+<img src="sso.svg"/>
+<p>
+Id crema gal&atilde;o macchiato spoon cinnamon irish medium viennese. Filter seasonal macchiato beans cinnamon robust body ut brewed barista. In, half and half turkish gal&atilde;o single shot grinder extra latte and aroma.
+</p>
+<p>
+Espresso, bar, black, filter aftertaste crema dripper viennese. Doppio qui affogato con panna percolator robust espresso. Seasonal id, qui instant caf&eacute; au lait beans robusta.
+</p>
+</div>
+</div class="grid-block">
+</body>
+</html>

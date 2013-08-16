@@ -1,0 +1,12 @@
+html, body {
+  margin-left: 5%; margin-right: 10%;
+  color: #000000; background: #fffdf0;
+}
+A:link { color: #336400 }
+A:hover { color: #669966 }
+A:visited { color: #009900 }
+A:active { color: #000066 }
+pre { font-family: Courier New }
+li {display: inline-block;}
+
+li.selected { font-size: larger;}

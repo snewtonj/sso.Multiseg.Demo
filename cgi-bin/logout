@@ -1,0 +1,16 @@
+#!/usr/bin/ruby
+
+require 'cgi'
+require 'syslog'
+
+$SAFE=1
+
+@syslog = Syslog.open("logout", Syslog::LOG_PID, Syslog::LOG_USER)
+
+c = CGI.new("html4")
+
+@syslog.info("processing request from #{c.referer} on #{c.host}")
+
+dNameCookie = CGI::Cookie.new('name' => "cmDisplayName", 'value' => "", 'expires' => Time.now - 1, 'path' => '/')
+profileCookie = CGI::Cookie.new('name' => "cmProfile", 'value' => "", 'expires' => Time.now - 1, 'path' => '/')
+puts c.header( "cookie" => [dNameCookie, profileCookie], 'status' => '200 OK')

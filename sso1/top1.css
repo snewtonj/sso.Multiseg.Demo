@@ -1,0 +1,23 @@
+html, body {
+  margin-left: 8% margin-right: 10%;
+  color: #006400; background: #FFF8E7;
+  font-family: tahoma, verdana, sans-serif;
+}
+A:link { color: #336400 }
+A:hover { color: #669966 }
+A:visited { color: #009900 }
+A:active { color: #000066 }
+h1 { color: rgb(73,38,25) }
+h3 { margin-left: 1%;}
+pre { text-indent: 0; font-family: monospace; }
+p { text-indent: 2em; margin-top: 23; margin-bottom: 23; }
+div.box { border: solid; border-width: thin; width: 100% }
+oL {list-style: upper-roman }
+ul { line-block; list-style: square ; color: rgb(73,38,25) }
+li {display: inline-block;}
+li.selected {font-size: larger;}
+img.logo { padding: 5px; }
+a.invisible {
+  color: #FFF8E7; background: #FFF8E7;
+  font-family: tahoma, verdana, sans-serif;
+}

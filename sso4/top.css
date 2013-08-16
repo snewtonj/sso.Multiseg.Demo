@@ -1,0 +1,9 @@
+html, body {
+  margin-left: 5%; margin-right: 10%;
+  color: #000000; background: #fffdf0;
+}
+a:link { color: #7F7F7F }
+a:visited { color: #ABABAB; }
+pre { font-family: Courier New }
+li {display: inline-block;}
+li.selected {font-size: larger;}

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<link href="http://janrain.com/wp-content/themes/janrain/favicon.ico" rel="shortcut icon" />
+<link href="http://cdn.quilt.janrain.com/2.2.4/quilt.css" media="all" rel="stylesheet" type="text/css" />
+<link href="style.css" media="all" rel="stylesheet" type="text/css" />
+<link href="top.css" media="all" rel="stylesheet" type="text/css" />
+<style>
+span[class^="janrain-provider-icon-"]{-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover;background-repeat:no-repeat;background-position:center center}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="http://sso1.janrain.com/js/cookie.js"></script>
+<script type="text/javascript" src="http://sso1.janrain.com/js/prettyprint.js"></script>
+<script type="text/javascript" src="http://sso1.janrain.com/js/engage-settings.js"></script>
+<script type="text/javascript" src="https://d1v9u0bgi1uimx.cloudfront.net/sso.js"></script>
+<script type="text/javascript">
+janrain.settings.segment = 'janrainDemoFour';
+janrain.settings.supportedSegments = 'janrainDemoOne-janrainDemoTwo';
+JANRAIN.SSO.ENGAGE.check_login ({
+  sso_server: janrain.settings.ssoServer,
+  xd_receiver: 'http://sso4.janrain.com/rpx_xdcomm.html',
+  logout_uri: 'http://sso4.janrain.com/cgi-bin/logout',
+  token_uri: '/cgi-bin/token',
+  segment: janrain.settings.segment,
+  supported_segments: janrain.settings.supportedSegments
+});
+</script>
+<title>Janrain Multi-Segment Demo Site 4</title>
+</head>
+<body class="quilt janrain-font" onload="showProfile()">
+    <div class="global_nav">
+      <div class="wrapper">
+      <ul>
+        <li><a href="http://sso1.janrain.com">Demo Site 1</a></li>
+        <li><a href="http://sso2.janrain.com">Demo Site 2</a></li>
+        <li><a href="http://sso3.janrain.com">Demo Site 3</a></li>
+        <li class="selected"><a href="http://sso4.janrain.com">Demo Site 4</a></li>
+      </ul>
+    </div>
+  </div>
+<div class="grid-block"> <div class="col3 center_col">
+<h1>Janrain Multi-Segment Demo Site 4</h1>
+<h3><a class="janrainEngage" href="#">Sign In on segment <script>document.write(janrain.settings.segment + " or from segments " + janrain.settings.supportedSegments.split('-'));</script></a></h3>
+<br/>
+<a id="sign-out" onClick="my_logout()" href=""></a>
+<p>Profile from Engage: <div id="cmProfile"></div></p>
+<img src="http://sso1.janrain.com/sso.svg"/>
+</div>
+<p>
+Rip the couch tincidunt a in viverra iaculis hairball rutrum, rhoncus tempus purr tail flick mauris a. Libero sleep on your keyboard enim ut nibh attack your ankles, sniff ac bat lick sunbathe bibendum. Ac suspendisse claw rhoncus, attack elit mauris a pharetra vehicula sniff.
+</p>
+<p>
+Kittens biting nam give me fish, nunc litter box chase the red dot amet climb the curtains amet attack in viverra. Vel tail flick attack rhoncus sagittis, pellentesque etiam rutrum neque rutrum. Sagittis run I don't like that food attack, orci turpis nam mauris a tempus hairball hiss jump chase the red dot.
+</p>
+</div>
+</body>
+</html>
