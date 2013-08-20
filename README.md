@@ -72,3 +72,11 @@ CGI Scripts
 In the cgi-bin directory are example Ruby scripts for token, profile,
 and logout functions.  Recent ruby versions should include all the
 required libraries, but some might not have the json library.
+
+The token script will query Engage for the logged-in user info, set
+a couple of cookies, then redirect back to the calling page.
+
+The profile script queries Engage and sets the cookies, but also
+returns the user profile as a JSON object.
+
+The logout script just deletes the cookies from the user's session.
