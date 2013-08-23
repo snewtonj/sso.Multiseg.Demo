@@ -1,0 +1,147 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Sso.multiseg.demo</title>
+  <meta name="description" content="SSO Multisegment Demo">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Sso.multiseg.demo</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">SSO Multisegment Demo</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/snewtonj/sso.Multiseg.Demo/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/snewtonj/sso.Multiseg.Demo/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/snewtonj/sso.Multiseg.Demo" class="code">View Sso.multiseg.demo on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <p><em>This is sample code is unsupported: use at your own risk</em></p>
+
+<h1>
+<a name="multi-segment-sso-demonstration-readme" class="anchor" href="#multi-segment-sso-demonstration-readme"><span class="octicon octicon-link"></span></a>Multi-Segment SSO Demonstration README</h1>
+
+<p>Some text is taken from <a href="http://developers.janrain.com/documentation/federate/engage_sso_integration/" title="Engage SSO Integration">Engage SSO Integration</a></p>
+
+<h2>
+<a name="site-setup" class="anchor" href="#site-setup"><span class="octicon octicon-link"></span></a>Site Setup</h2>
+
+<p>By default the sites are sso1.janrain.com through sso4.janrain.com.
+Adjust the names in the html and javascript if those change. Running
+virtual servers on a VM and using a local modified /etc/hosts file
+for the particular setup. Each of the for sso? directories should
+be a different virtual server. The virtual hosts don't need to be
+externally visible, but they must be able to communicate with
+the Engage server and CDN.</p>
+
+<h2>
+<a name="configuration" class="anchor" href="#configuration"><span class="octicon octicon-link"></span></a>Configuration</h2>
+
+<h3>
+<a name="per-site" class="anchor" href="#per-site"><span class="octicon octicon-link"></span></a>Per Site</h3>
+
+<p>Each site has an index.html file where the per site settings exist
+    janrain.settings.segment = 'segmentName';
+Segment names are restricted to ASCII upper and lower case, numbers, and the underscore (_)
+    janrain.settings.supportedSegments = 'supportedSegmentOne-supportedSegmentTwo';
+Supported segment names are joined by the dash (-)</p>
+
+<div class="highlight"><pre><span class="nx">JANRAIN</span><span class="p">.</span><span class="nx">SSO</span><span class="p">.</span><span class="nx">ENGAGE</span><span class="p">.</span><span class="nx">check_login</span> <span class="p">({</span>
+  <span class="nx">sso_server</span><span class="o">:</span> <span class="nx">janrain</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">ssoServer</span><span class="p">,</span>
+  <span class="c1">// each side much have an its own xd receiver</span>
+  <span class="nx">xd_receiver</span><span class="o">:</span> <span class="s1">'http://sso4.janrain.com/rpx_xdcomm.html'</span><span class="p">,</span>
+  <span class="c1">// each site should have a logout script that will close the session and release any resources in use</span>
+  <span class="nx">logout_uri</span><span class="o">:</span> <span class="s1">'http://sso4.janrain.com/cgi-bin/logout'</span><span class="p">,</span>
+  <span class="c1">// the usual token url</span>
+  <span class="nx">token_uri</span><span class="o">:</span> <span class="s1">'/cgi-bin/token'</span><span class="p">,</span>
+  <span class="c1">// from the settings above</span>
+  <span class="nx">segment</span><span class="o">:</span> <span class="nx">janrain</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">segment</span><span class="p">,</span>
+  <span class="nx">supported_segments</span><span class="o">:</span> <span class="nx">janrain</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">supportedSegments</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>
+<a name="global-settings" class="anchor" href="#global-settings"><span class="octicon octicon-link"></span></a>Global Settings</h3>
+
+<p>The global engage and sso setting existing in the engage-settings.js
+file, and this by default is served out of sso1 but can be changed.
+Depending on how your engage application is configured, the contents
+of this file might be different, but it needs at a minimum the
+following settings:</p>
+
+<div class="highlight"><pre><span class="nx">janrain</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">appId</span> <span class="o">=</span> <span class="s1">'your app id'</span><span class="p">;</span>
+<span class="nx">janrain</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">appUrl</span> <span class="o">=</span> <span class="s1">'https://yourapp.rpxnow.com'</span><span class="p">;</span>
+<span class="nx">janrain</span><span class="p">.</span><span class="nx">settings</span><span class="p">.</span><span class="nx">ssoServer</span> <span class="o">=</span> <span class="s1">'https://yourapp.janrainsso.com'</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">===</span> <span class="s1">'https:'</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">'https://rpxnow.com/js/lib/yourapp/engage.js'</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">e</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s1">'http://widget-cdn.rpxnow.com/js/lib/yourapp/engage.js'</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2>
+<a name="libraries" class="anchor" href="#libraries"><span class="octicon octicon-link"></span></a>Libraries</h2>
+
+<p>Two utlity libraries are provided in the sso1/js directoy. The
+cookie.js file is required to handle cookies in the browser, while
+the prettyprint.js file is used to display the logged-in user profile
+as a table.</p>
+
+<h2>
+<a name="cgi-scripts" class="anchor" href="#cgi-scripts"><span class="octicon octicon-link"></span></a>CGI Scripts</h2>
+
+<p>In the cgi-bin directory are example Ruby scripts for token, profile,
+and logout functions.  Recent ruby versions should include all the
+required libraries, but some might not have the json library.</p>
+
+<p>The token script will query Engage for the logged-in user info, set
+a couple of cookies, then redirect back to the calling page.</p>
+
+<p>The profile script queries Engage and sets the cookies, but also
+returns the user profile as a JSON object.</p>
+
+<p>The logout script just deletes the cookies from the user's session.</p>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/snewtonj" class="avatar"><img src="https://0.gravatar.com/avatar/c87df92baeb4b1b6818f5c0f364ab380?d=https%3A%2F%2Fidenticons.github.com%2F3ef6ddfbf6c3f62ff7bc7519d1c20df1.png&amp;s=30" width="48" height="48"/></a> <a href="https://github.com/snewtonj">snewtonj</a> maintains <a href="https://github.com/snewtonj/sso.Multiseg.Demo">Sso.multiseg.demo</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/snewtonj/sso.Multiseg.Demo/tarball/master" class="tar">tar</a><a href="https://github.com/snewtonj/sso.Multiseg.Demo/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
