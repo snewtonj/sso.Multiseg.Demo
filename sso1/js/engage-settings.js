@@ -8,7 +8,7 @@
     janrain.settings.appId = 'your app id';
     janrain.settings.appUrl = 'https://yourapp.rpxnow.com';
     janrain.settings.actionText = 'Multi-Segment Engage Test Login';
-    janrain.settings.tokenUrl = 'http://sso1.janrain.com/cgi-bin/profile';
+    janrain.settings.tokenUrl = 'http://' + location.hostname + '/cgi-bin/profile';
     janrain.settings.ssoServer = 'https://yourapp.janrainsso.com';
 
     function isReady() { janrain.ready = true; };
